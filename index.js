@@ -104,14 +104,14 @@
 
 //req.params
 
-const express = require("express");
-const app = express();
+// const express = require("express");
+// const app = express();
 
-let port = 3000;
+// let port = 3000;
 
-app.listen(port, () => {
-    console.log(`app listening on port ${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`app listening on port ${port}`);
+// });
 
 // app.get("/user/:username/id/:userId", (req, res) => {
 //     console.log(req.params);
@@ -129,3 +129,88 @@ app.listen(port, () => {
 
 
 
+//Templating
+//EJS(Embedded JavaScript templates)
+// EJS is a simple templating language that lets you generate HTML markup with plan JavaScript.
+
+
+//Using EJS
+
+// app.set("view engine", "ejs");
+
+// app.get("/", (req, res) => {
+//     res.render("home.ejs");
+// })
+
+
+//Views Directory
+
+// const path = require("path");
+
+// app.set("views", path.join(__dirname, "/views"));
+
+
+//Interpolation Syntax
+
+//Interpolation refers to embedding expressions into marked up text.
+
+//WE USE <%=....%> this tag to achieve interpolation.
+// <%=..%> Outputs the value into the template (HTML escaped).
+//The code we write in these tags, their output will be in the form of a string.
+//There are multiple tags as well you can check that on ejs.co website.
+
+
+//Passing data to EJS
+
+// app.get("/rolldice", (req, res) => {
+//     let num = Math.floor(Math.random() * 6) + 1;
+//     res.render("rollDice.ejs", { diceVal: num });
+// });
+
+
+//INSTAGRAM EJS
+//Create a basic template for instagram page based on following route:
+
+//   /ig/:username
+
+
+//Conditional Statements in EJS
+//Adding conditions inside EJS
+
+// <% if(diceValue == 6) {
+// %> <h2> Nice! Roll dice again. <h2>
+// <% } %>
+
+//WE USE 'SCRIPTLET' tag for contro -flow, no output.
+
+
+//Loops in EJS
+
+
+/* 
+<% for(users of followers) { %>
+<li><%= user %></li>
+<% } %> 
+*/
+
+
+//Instagram page with EJS
+
+//const instaData = require("./data.json");
+
+
+
+
+//Serving Static Files
+
+/* 
+app.use( express.static( folder_name) )
+
+app.use(express.static(path.join(__dirname, "public")));
+*/
+
+
+
+//Includes
+
+// <%- include("includes/head.ejs"); %>
